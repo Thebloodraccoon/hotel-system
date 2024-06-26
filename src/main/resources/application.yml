@@ -1,0 +1,11 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /hotel-system/api
+
+spring:
+  datasource:
+    driver-class-name: ${MYSQL_DRIVER}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    url: ${MYSQL_URL}
