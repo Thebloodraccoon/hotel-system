@@ -1,13 +1,13 @@
 package ua.thecoon.hotel.service;
 
 import ua.thecoon.hotel.exception.EntityNotFoundException;
-import ua.thecoon.hotel.model.entity.Hotel;
+import ua.thecoon.hotel.model.dto.HotelDTO;
 import java.util.List;
 
 public interface HotelService {
-    Hotel getHotel(Long id) throws EntityNotFoundException;
-    List<Hotel> getAllHotels();
-    Hotel updateHotel(Long id, Hotel hotel) throws EntityNotFoundException;
-    Hotel saveHotel(Hotel hotel);
+    HotelDTO getHotel(Long id) throws EntityNotFoundException;
+    List<HotelDTO> getAllHotels();
+    HotelDTO updateHotel(Long id, HotelDTO hotel) throws EntityNotFoundException;
+    HotelDTO saveHotel(HotelDTO hotel);
     boolean deleteHotel(Long id) throws EntityNotFoundException;
 }
