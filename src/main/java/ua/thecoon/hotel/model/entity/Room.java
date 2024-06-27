@@ -12,7 +12,7 @@ import java.util.List;
 
 @Data
 @Entity(name = "Room")
-@Table(name = "t_room")
+@Table(name = "t_rooms")
 @ToString(exclude = "hotel")
 public class Room {
     @Id
@@ -28,7 +28,7 @@ public class Room {
     @Column(name = "price_per_night", nullable = false)
     private Double pricePerNight;
 
-    @Column(name = "price_per_night", nullable = false)
+    @Column(name = "capacity", nullable = false)
     private int capacity;
 
     @Enumerated(EnumType.STRING)
@@ -38,7 +38,4 @@ public class Room {
     @ManyToOne
     @JoinColumn(name = "hotel_id", nullable = false)
     private Hotel hotel;
-
-    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Room> rooms;
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity(name = "Guest")
-@Table(name = "t_guest")
+@Table(name = "t_guests")
 @ToString(exclude = "hotel")
 public class Guest {
     @Id

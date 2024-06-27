@@ -9,3 +9,5 @@ spring:
     username: ${MYSQL_USER}
     password: ${MYSQL_PASSWORD}
     url: ${MYSQL_URL}
+
+

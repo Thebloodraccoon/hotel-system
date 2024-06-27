@@ -28,7 +28,6 @@ public class AuthController {
     ResponseEntity<User> login(@RequestBody LoginDTO loginDTO) throws Exception {
         AuthSuccessDTO authSuccess = authService.authenticateUser(loginDTO);
 
-
         return ResponseEntity.ok(authSuccess.getUser());
     }
 }

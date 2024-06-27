@@ -25,7 +25,7 @@ CREATE TABLE t_guests
 );
 
 -- Таблиця t_staff (Персонал)
-CREATE TABLE t_staff
+CREATE TABLE t_user
 (
     id        INT PRIMARY KEY AUTO_INCREMENT,
     name      VARCHAR(255)        NOT NULL,
@@ -94,8 +94,8 @@ CREATE TABLE t_payments
 CREATE TABLE t_payroll
 (
     id           INT AUTO_INCREMENT PRIMARY KEY,
-    staff_id     INT            NOT NULL,
+    user_id     INT            NOT NULL,
     payment_date DATE           NOT NULL,
     amount       DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (staff_id) REFERENCES t_staff (id) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES t_user (id) ON DELETE CASCADE
 );
