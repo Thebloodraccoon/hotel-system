@@ -15,7 +15,7 @@ public class HotelDTO {
     private String address;
     private String contactNum;
     private Date createdAt;
-//    private List<Guest> guests;
-//    private List<User> users;
+    private List<GuestDTO> guests;
+    private List<UserDTO> users;
     private List<RoomDTO> rooms;
 }

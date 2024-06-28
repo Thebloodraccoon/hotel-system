@@ -8,6 +8,6 @@ import ua.thecoon.hotel.model.entity.Service;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface ServiceMapper {
-    ServiceDTO serviceToServiceDTO(Service service);
-    Service serviceDTOToService(ServiceDTO serviceDTO);
+    ServiceDTO toServiceDto(Service service);
+    Service toService(ServiceDTO serviceDTO);
 }

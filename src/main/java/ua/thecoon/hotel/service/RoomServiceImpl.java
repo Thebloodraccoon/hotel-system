@@ -23,7 +23,7 @@ public class RoomServiceImpl implements RoomService {
         List<Room> all = (List<Room>) roomRepo.findAll();
 
         return all.stream()
-                .map(roomMapper::toDto)
+                .map(roomMapper::toRoomDto)
                 .collect(Collectors.toList());
     }
 
@@ -31,28 +31,28 @@ public class RoomServiceImpl implements RoomService {
         Room room = roomRepo.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Room not found"));
 
-        return roomMapper.toDto(room);
+        return roomMapper.toRoomDto(room);
     }
 
     @Transactional
     public RoomDTO createRoom(@Valid RoomDTO roomDTO) {
-        Room room = roomMapper.toEntity(roomDTO);
+        Room room = roomMapper.toRoom(roomDTO);
 
         Room savedRoom = roomRepo.save(room);
 
-        return roomMapper.toDto(savedRoom);
+        return roomMapper.toRoomDto(savedRoom);
     }
 
     @Transactional
     public RoomDTO updateRoom(Long id, @Valid RoomDTO updatedRoomDTO) {
         return roomRepo.findById(id).map(room -> {
-            Room updatedRoom = roomMapper.toEntity(updatedRoomDTO);
+            Room updatedRoom = roomMapper.toRoom(updatedRoomDTO);
 
             updatedRoom.setId(room.getId());
 
             Room savedRoom = roomRepo.save(updatedRoom);
 
-            return roomMapper.toDto(savedRoom);
+            return roomMapper.toRoomDto(savedRoom);
         }).orElseThrow(() -> new EntityNotFoundException("Room not found"));
     }
 

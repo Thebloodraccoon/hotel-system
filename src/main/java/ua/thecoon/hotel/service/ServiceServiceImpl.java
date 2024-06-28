@@ -23,7 +23,7 @@ public class ServiceServiceImpl implements ServiceService{
         List<ua.thecoon.hotel.model.entity.Service> all = (List<ua.thecoon.hotel.model.entity.Service>) serviceRepo.findAll();
 
         return all.stream()
-                .map(serviceMapper::serviceToServiceDTO)
+                .map(serviceMapper::toServiceDto)
                 .collect(Collectors.toList());
 
     }
@@ -31,16 +31,16 @@ public class ServiceServiceImpl implements ServiceService{
     @Override
     public ServiceDTO getServiceById(Long id) {
         return serviceRepo.findById(id)
-                .map(serviceMapper::serviceToServiceDTO)
+                .map(serviceMapper::toServiceDto)
                 .orElseThrow(() -> new EntityNotFoundException("Service not found with id " + id));
     }
 
     @Transactional
     public ServiceDTO createService(@Valid ServiceDTO serviceDTO) {
-        ua.thecoon.hotel.model.entity.Service service = serviceMapper.serviceDTOToService(serviceDTO);
+        ua.thecoon.hotel.model.entity.Service service = serviceMapper.toService(serviceDTO);
         ua.thecoon.hotel.model.entity.Service savedService = serviceRepo.save(service);
 
-        return serviceMapper.serviceToServiceDTO(savedService);
+        return serviceMapper.toServiceDto(savedService);
     }
 
     @Transactional
@@ -49,11 +49,11 @@ public class ServiceServiceImpl implements ServiceService{
             throw new EntityNotFoundException("Service not found with id " + id);
         }
 
-        ua.thecoon.hotel.model.entity.Service service = serviceMapper.serviceDTOToService(serviceDTO);
+        ua.thecoon.hotel.model.entity.Service service = serviceMapper.toService(serviceDTO);
         service.setId(id);
         ua.thecoon.hotel.model.entity.Service updatedService = serviceRepo.save(service);
 
-        return serviceMapper.serviceToServiceDTO(updatedService);
+        return serviceMapper.toServiceDto(updatedService);
     }
 
     @Transactional
