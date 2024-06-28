@@ -11,6 +11,8 @@ import ua.thecoon.hotel.model.entity.User;
 import ua.thecoon.hotel.repo.HotelRepo;
 import ua.thecoon.hotel.repo.UserRepo;
 
+import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -19,14 +21,15 @@ public class AuthServiceImpl implements AuthService {
     private final HotelRepo hotelRepo;
 
     public User registerUser(RegisterDTO registerDTO) throws Exception {
-        Hotel hotel = hotelRepo.findById(registerDTO.getHotel_id()).get();
+        Optional<Hotel> hotel = hotelRepo.findById(registerDTO.getHotel_id());
+
 
         User user = User.builder()
                 .email(registerDTO.getEmail())
                 .password(registerDTO.getPassword())
                 .name(registerDTO.getName())
                 .role(registerDTO.getRoles())
-                .hotel(hotel)
+                .hotel(hotel.get())
                 .build();
 
         return userRepo.save(user);

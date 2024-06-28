@@ -11,7 +11,7 @@ import ua.thecoon.hotel.model.entity.Hotel;
 import ua.thecoon.hotel.service.HotelService;
 
 @RestController
-@RequestMapping("/hotel-admin")
+@RequestMapping("admin/hotels")
 @RequiredArgsConstructor
 public class HotelAdminController {
     private final HotelService hotelService;

@@ -35,7 +35,7 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Transactional
-    public RoomDTO addRoom(@Valid RoomDTO roomDTO) {
+    public RoomDTO createRoom(@Valid RoomDTO roomDTO) {
         Room room = roomMapper.toEntity(roomDTO);
 
         Room savedRoom = roomRepo.save(room);
@@ -57,7 +57,12 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Transactional
-    public void deleteRoom(Long id) {
-        roomRepo.deleteById(id);
+    public boolean deleteRoom(Long id) {
+        if (roomRepo.existsById(id)) {
+            roomRepo.deleteById(id);
+            return true;
+        }
+
+        throw new EntityNotFoundException("Room not found with id: " + id);
     }
 }
