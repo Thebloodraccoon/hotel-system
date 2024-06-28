@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ua.thecoon.hotel.model.dto.AuthSuccessDTO;
 import ua.thecoon.hotel.model.dto.LoginDTO;
 import ua.thecoon.hotel.model.dto.RegisterDTO;
+import ua.thecoon.hotel.model.dto.UserDTO;
 import ua.thecoon.hotel.model.entity.User;
 import ua.thecoon.hotel.service.AuthService;
 
@@ -17,8 +18,8 @@ public class AuthController {
 
     @PostMapping("/register")
     public  @ResponseBody
-    ResponseEntity<User> register(@RequestBody RegisterDTO registerDTO) throws Exception {
-        User user = authService.registerUser(registerDTO);
+    ResponseEntity<UserDTO> register(@RequestBody RegisterDTO registerDTO) throws Exception {
+        UserDTO user = authService.registerUser(registerDTO);
 
         return ResponseEntity.ok(user);
     }

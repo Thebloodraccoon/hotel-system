@@ -11,3 +11,5 @@ spring:
     url: ${MYSQL_URL}
 
 
+jwt:
+  secret: ${JWT_SECRET}

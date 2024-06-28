@@ -5,6 +5,6 @@ import ua.thecoon.hotel.model.entity.User;
 
 @Data
 public class AuthSuccessDTO {
-    private User user;
+    private UserDTO user;
     private String token;
 }
