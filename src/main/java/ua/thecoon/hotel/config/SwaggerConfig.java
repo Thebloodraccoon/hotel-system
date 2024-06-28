@@ -32,10 +32,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 ////    private ApiInfo metaData() {
 ////        return new ApiInfoBuilder()
 ////                .title("Spring Boot REST API")
-////                .description("\"Spring Boot REST API for Hotel Store\"")
+////                .description("\"Spring Boot REST API for Hotel System\"")
 ////                .version("1.0.0")
-////                .license("Apache License Version 2.0")
-////                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
 ////                .contact(new Contact("The blood coon", "https://github.com/Thebloodraccoon", "vsafirko@gmail.com"))
 ////                .build();
 ////    }
