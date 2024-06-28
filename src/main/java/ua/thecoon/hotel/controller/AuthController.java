@@ -7,13 +7,13 @@ import ua.thecoon.hotel.model.dto.AuthSuccessDTO;
 import ua.thecoon.hotel.model.dto.LoginDTO;
 import ua.thecoon.hotel.model.dto.RegisterDTO;
 import ua.thecoon.hotel.model.dto.UserDTO;
-import ua.thecoon.hotel.model.entity.User;
 import ua.thecoon.hotel.service.AuthService;
 
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
+    private static final String X_JWT_TOKEN_HEADER = "x-jwt-token";
     private final AuthService authService;
 
     @PostMapping("/register")
@@ -26,9 +26,11 @@ public class AuthController {
 
     @PostMapping("/login")
     public @ResponseBody
-    ResponseEntity<User> login(@RequestBody LoginDTO loginDTO) throws Exception {
+    ResponseEntity<UserDTO> login(@RequestBody LoginDTO loginDTO) throws Exception {
         AuthSuccessDTO authSuccess = authService.authenticateUser(loginDTO);
 
-        return ResponseEntity.ok(authSuccess.getUser());
+        return ResponseEntity.ok()
+                .header(X_JWT_TOKEN_HEADER, authSuccess.getToken())
+                .body(authSuccess.getUser());
     }
 }

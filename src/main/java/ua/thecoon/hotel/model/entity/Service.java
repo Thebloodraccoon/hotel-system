@@ -1,7 +1,6 @@
 package ua.thecoon.hotel.model.entity;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ua.thecoon.hotel.model.entity.enums.ServiceCategory;

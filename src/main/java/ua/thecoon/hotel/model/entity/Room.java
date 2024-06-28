@@ -4,10 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
 import ua.thecoon.hotel.model.entity.enums.RoomType;
-import ua.thecoon.hotel.model.entity.enums.ServiceCategory;
-
-import java.util.Date;
-import java.util.List;
 
 
 @Data

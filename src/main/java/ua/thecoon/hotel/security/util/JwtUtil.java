@@ -6,7 +6,6 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import ua.thecoon.hotel.model.entity.Hotel;
 import ua.thecoon.hotel.security.model.HotelUserDetails;
 
 import java.util.Date;

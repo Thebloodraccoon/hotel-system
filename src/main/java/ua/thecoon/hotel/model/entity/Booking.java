@@ -3,7 +3,7 @@ package ua.thecoon.hotel.model.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.math.BigDecimal;
+
 import java.util.Date;
 
 @Data

@@ -1,9 +1,6 @@
 package ua.thecoon.hotel.model.dto;
 
 import lombok.Data;
-import ua.thecoon.hotel.model.entity.Guest;
-import ua.thecoon.hotel.model.entity.Room;
-import ua.thecoon.hotel.model.entity.User;
 
 import java.util.Date;
 import java.util.List;

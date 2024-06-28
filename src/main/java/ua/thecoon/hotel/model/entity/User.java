@@ -3,8 +3,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import ua.thecoon.hotel.model.entity.enums.Role;
 
-import java.util.Date;
-
 @Data
 @Entity(name = "User")
 @Table(name = "t_user")

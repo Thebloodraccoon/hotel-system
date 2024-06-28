@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.thecoon.hotel.exception.EntityNotFoundException;
 import ua.thecoon.hotel.model.dto.HotelDTO;
-import ua.thecoon.hotel.model.entity.Hotel;
 import ua.thecoon.hotel.service.HotelService;
 
 import java.util.List;
