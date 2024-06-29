@@ -6,6 +6,7 @@ import lombok.ToString;
 
 import java.util.List;
 
+@SuppressWarnings("ALL")
 @Data
 @Entity(name = "Guest")
 @Table(name = "t_guests")

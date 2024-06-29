@@ -7,6 +7,7 @@ import lombok.ToString;
 import java.util.Date;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 @Data
 @Entity(name = "Hotel")
 @Table(name = "t_hotels")

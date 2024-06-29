@@ -45,8 +45,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests( conf ->
                         conf
                                 .requestMatchers(antMatcher("/auth/**")).permitAll()
-                                .requestMatchers(antMatcher("/admin/**")).hasAuthority("Admin")
-                                .anyRequest().authenticated()
+                                .requestMatchers(antMatcher("/rooms/**")).permitAll()
+                                .requestMatchers(antMatcher("/admin/**")).hasRole("Admin")
+                                .anyRequest().permitAll()
                 )
                 .exceptionHandling(conf ->
                         conf.authenticationEntryPoint(hotelAuthEntryPoint))

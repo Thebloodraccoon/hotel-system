@@ -6,6 +6,7 @@ import lombok.ToString;
 
 import java.util.Date;
 
+@SuppressWarnings("ALL")
 @Data
 @Entity(name = "Payment")
 @Table(name = "t_payments")

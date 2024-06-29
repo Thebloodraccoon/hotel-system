@@ -7,6 +7,7 @@ import ua.thecoon.hotel.model.entity.enums.ServiceCategory;
 
 
 
+@SuppressWarnings("ALL")
 @Entity(name = "Service")
 @Table(name = "t_services")
 @Data

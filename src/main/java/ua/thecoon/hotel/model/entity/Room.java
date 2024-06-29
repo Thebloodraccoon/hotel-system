@@ -6,6 +6,7 @@ import lombok.ToString;
 import ua.thecoon.hotel.model.entity.enums.RoomType;
 
 
+@SuppressWarnings("ALL")
 @Data
 @Entity(name = "Room")
 @Table(name = "t_rooms")

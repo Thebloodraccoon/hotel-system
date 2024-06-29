@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+@SuppressWarnings("ALL")
 @Data
 @NoArgsConstructor
 @Entity(name = "Booking")

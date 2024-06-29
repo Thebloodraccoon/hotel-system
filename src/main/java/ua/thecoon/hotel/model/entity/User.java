@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import ua.thecoon.hotel.model.entity.enums.Role;
 
+@SuppressWarnings("ALL")
 @Data
 @Entity(name = "User")
 @Table(name = "t_user")
