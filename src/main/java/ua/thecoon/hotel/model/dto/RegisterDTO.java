@@ -10,5 +10,5 @@ public class RegisterDTO {
     private String password;
     private String phoneNum;
     private Role roles;
-    private Long hotel_id;
+    private Long hotelId;
 }

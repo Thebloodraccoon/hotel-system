@@ -18,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import ua.thecoon.hotel.model.entity.enums.Role;
 import ua.thecoon.hotel.repo.UserRepo;
 import ua.thecoon.hotel.security.auth.HotelAuthEntryPoint;
 import ua.thecoon.hotel.security.filter.HotelFilter;
@@ -46,8 +47,8 @@ public class SecurityConfig {
                         conf
                                 .requestMatchers(antMatcher("/auth/**")).permitAll()
                                 .requestMatchers(antMatcher("/rooms/**")).permitAll()
-                                .requestMatchers(antMatcher("/admin/**")).hasRole("Admin")
-                                .anyRequest().permitAll()
+                                .requestMatchers(antMatcher("/admin/**")).hasAuthority(Role.ADMIN.toString())
+                                .anyRequest().authenticated()
                 )
                 .exceptionHandling(conf ->
                         conf.authenticationEntryPoint(hotelAuthEntryPoint))

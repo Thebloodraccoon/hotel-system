@@ -35,14 +35,16 @@ public class AuthServiceImpl implements AuthService {
 
 
     public UserDTO registerUser(RegisterDTO registerDTO) throws Exception {
-        Optional<Hotel> hotel = hotelRepo.findById(registerDTO.getHotel_id());
+        Optional<Hotel> hotel = hotelRepo.findById(registerDTO.getHotelId());
 
+        String pass = encoder.encode(registerDTO.getPassword());
 
         User user = User.builder()
                 .email(registerDTO.getEmail())
-                .password(registerDTO.getPassword())
+                .password(pass)
                 .name(registerDTO.getName())
                 .role(registerDTO.getRoles())
+                .phoneNum(registerDTO.getPhoneNum())
                 .hotel(hotel.get())
                 .build();
 
