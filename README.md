@@ -40,3 +40,4 @@ Environment variables
     MYSQL_URL=jdbc:mysql://<host>:<port>/<database>
     MYSQL_USER=<username>
     MYSQL_PASSWORD=<password>
+    JWT_SECRET=<secret>
