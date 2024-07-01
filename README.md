@@ -1,7 +1,7 @@
 # Hotel system
 The Hotel System API provides a RESTful interface for managing various aspects of a hotel system.
 
-![](https://github.com/thecoon/hotel-system/actions/workflows/main.yml/badge.svg)
+![https://github.com/thecoon/hotel-system/actions/workflows/main.yml/badge.svg](https://github.com/Thebloodraccoon/hotel-system/actions/workflows/main.yml/badge.svg)
 
 
 ## Prerequisites
