@@ -1,6 +1,9 @@
 # Hotel system
 The Hotel System API provides a RESTful interface for managing various aspects of a hotel system.
 
+![](https://github.com/thecoon/hotel-system/actions/workflows/main.yml/badge.svg)
+
+
 ## Prerequisites
 - Java Development Kit (JDK) version 17. 
 - Apache Maven version 4.0. 

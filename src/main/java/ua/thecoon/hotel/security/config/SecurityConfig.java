@@ -47,6 +47,12 @@ public class SecurityConfig {
                         conf
                                 .requestMatchers(antMatcher("/auth/**")).permitAll()
                                 .requestMatchers(antMatcher("/rooms/**")).permitAll()
+                                .requestMatchers(antMatcher("/hotels/**")).permitAll()
+                                .requestMatchers(antMatcher("/bookings/**")).permitAll()
+                                .requestMatchers(antMatcher("/swagger-ui/**")).permitAll()
+                                .requestMatchers(antMatcher("/v3/api-docs/**")).permitAll()
+                                .requestMatchers(antMatcher("/swagger-resources/**")).permitAll()
+                                .requestMatchers(antMatcher("/swagger-resources")).permitAll()
                                 .requestMatchers(antMatcher("/admin/**")).hasAuthority(Role.ADMIN.toString())
                                 .anyRequest().authenticated()
                 )
@@ -57,6 +63,7 @@ public class SecurityConfig {
 
         http.addFilterBefore(hotelFilter(),
                 UsernamePasswordAuthenticationFilter.class);
+
 
         return http.build();
     }

@@ -1,36 +1,43 @@
 package ua.thecoon.hotel.config;
 
 
-// TODO
-//@Configuration
-//@EnableSwagger2
-//public class SwaggerConfig extends WebMvcConfigurationSupport {
-////
-////    @Bean
-////    public Docket api() {
-////        return new Docket(DocumentationType.SWAGGER_2)
-////                .select()
-////                .apis(RequestHandlerSelectors.basePackage("ua.thecoon.hotel.controller"))
-////                .paths(PathSelectors.any())
-////                .build()
-////                .apiInfo(metaData());
-////    }
-////
-////    private ApiInfo metaData() {
-////        return new ApiInfoBuilder()
-////                .title("Spring Boot REST API")
-////                .description("\"Spring Boot REST API for Hotel System\"")
-////                .version("1.0.0")
-////                .contact(new Contact("The blood coon", "https://github.com/Thebloodraccoon", "vsafirko@gmail.com"))
-////                .build();
-////    }
-//
-//    @Override
-//    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("swagger-ui.html")
-//                .addResourceLocations("classpath:/META-INF/resources/");
-//
-//        registry.addResourceHandler("/webjars/**")
-//                .addResourceLocations("classpath:/META-INF/resources/webjars/");
-//    }
-//}
+import io.swagger.v3.oas.models.Components;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.security.SecurityScheme;
+import org.springdoc.core.models.GroupedOpenApi;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class SwaggerConfig {
+
+    @Bean
+    GroupedOpenApi publicAPI() {
+        return GroupedOpenApi.builder()
+                .group("public-apis")
+                .pathsToMatch("/**")
+                .build();
+    }
+
+    @Bean
+    public OpenAPI customOpenAPI() {
+        return new OpenAPI()
+                .info(new Info()
+                        .title("Hotel System REST API")
+                        .version("1.0")
+                        .description("This is a sample Spring Boot RESTful application"))
+                .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
+                .components(
+                        new Components()
+                                .addSecuritySchemes("bearerAuth", new SecurityScheme()
+                                        .type(SecurityScheme.Type.HTTP)
+                                        .scheme("bearer")
+                                        .bearerFormat("JWT")
+                                )
+                );
+    }
+
+
+}
