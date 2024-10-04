@@ -28,17 +28,16 @@ public class HotelMapperTest extends MapperTestParent {
         hotel.setUsers(List.of(new User()));
         hotel.setGuests(List.of(new Guest()));
 
+        final HotelDTO hotelDTO1 = hotelMapper.toHotelDTO(hotel);
 
-        final HotelDTO hotelDTO = hotelMapper.toHotelDTO(hotel);
-
-        assertNotNull(hotelDTO);
-        assertEquals(hotelDTO.getId(), hotel.getId());
-        assertEquals(hotelDTO.getName(), hotel.getName());
-        assertEquals(hotelDTO.getAddress(), hotel.getAddress());
-        assertEquals(hotelDTO.getContactNum(), hotel.getContactNum());
-        assertEquals(hotelDTO.getRooms().size(), hotel.getRooms().size());
-        assertEquals(hotelDTO.getUsers().size(), hotel.getUsers().size());
-        assertEquals(hotelDTO.getGuests().size(), hotel.getGuests().size());
+        assertNotNull(hotelDTO1);
+        assertEquals(hotelDTO1.getId(), hotel.getId());
+        assertEquals(hotelDTO1.getName(), hotel.getName());
+        assertEquals(hotelDTO1.getAddress(), hotel.getAddress());
+        assertEquals(hotelDTO1.getContactNum(), hotel.getContactNum());
+        assertEquals(hotelDTO1.getRooms().size(), hotel.getRooms().size());
+        assertEquals(hotelDTO1.getUsers().size(), hotel.getUsers().size());
+        assertEquals(hotelDTO1.getGuests().size(), hotel.getGuests().size());
     }
 
     @Test
